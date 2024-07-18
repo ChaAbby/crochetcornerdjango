@@ -92,5 +92,3 @@ class Tool(models.Model):
 class Inspiration(Post):
     insp_link = models.CharField(max_length=250, blank=True)
     seeking_pattern = models.BooleanField(default=False)
-
-

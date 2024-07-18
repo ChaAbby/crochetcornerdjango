@@ -6,17 +6,6 @@ from django.http import JsonResponse
 from .models import *
 from .serializers import *
 
-
-@api_view(['GET'])
-def hello_world(request):
-    return Response({'message': 'Hello, world!'})
-    
-# @api_view(['GET'])
-def post_list(request):
-    posts = Post.objects.all()
-    serializer = PostSerializer(posts, many=True)
-    return JsonResponse({'message': serializer.data}, safe=False)
-
 class PostView(APIView):
     def get(self, request):
         output = [
@@ -24,7 +13,6 @@ class PostView(APIView):
                 'description': output.description,
                 'author': output.author,
                 'pub_date': output.pub_date,
-
             } 
             for output in Post.objects.all()
         ]
@@ -44,7 +32,6 @@ class PatternView(APIView):
                 'description': output.description,
                 'author': output.author,
                 'pub_date': output.pub_date,
-
             } 
             for output in Pattern.objects.all()
         ]

@@ -14,7 +14,7 @@ class PatternSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pattern
         fields = [
-            'instructions'
+            'instructions',
             'description',
             'author',
             'pub_date'
