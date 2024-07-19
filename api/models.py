@@ -5,16 +5,11 @@ from django.db import models
 class Post(models.Model):
     title = models.CharField(max_length=50)
     description = models.CharField(max_length=1000)
-    likes = models.IntegerField(default=0),
     author = models.CharField(max_length = 100)
     pub_date = models.DateTimeField('date published')
 
-class Image(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    image_ref = models.CharField(max_length=250)
-
 class Pattern(Post):
-    instructions = models.CharField(max_length=1000)
+    instructions = models.CharField(max_length=1000, blank=True)
 
 class Yarn(models.Model):
     pattern = models.ForeignKey(Pattern, on_delete= models.CASCADE)
@@ -30,7 +25,8 @@ class Yarn(models.Model):
 ]
     weight = models.CharField(
         max_length=50, 
-        choices=WEIGHT_CHOICES, 
+        choices=WEIGHT_CHOICES,
+        blank=True, 
     )
     YARN_CHOICES = [
     ('wool', 'Wool'),
@@ -54,7 +50,8 @@ class Yarn(models.Model):
     ]
     yarn_type = models.CharField(
         max_length=50,
-        choices=YARN_CHOICES,)
+        choices=YARN_CHOICES,
+        blank=True,)
     COLOR_CHOICES = [
     ('red', 'Red'),
     ('orange', 'Orange'),
@@ -71,7 +68,8 @@ class Yarn(models.Model):
 ]
     color = models.CharField(
         max_length=50,
-        choices=COLOR_CHOICES,)
+        choices=COLOR_CHOICES,
+        blank=True,)
 
 class Tool(models.Model):
     pattern = models.ForeignKey(Pattern, on_delete=models.CASCADE)
@@ -86,9 +84,10 @@ class Tool(models.Model):
     tool = models.CharField(
         max_length=40, 
         choices=TOOL_CHOICES, 
+        blank=True,
     )
 
 
 class Inspiration(Post):
-    insp_link = models.CharField(max_length=250, blank=True)
-    seeking_pattern = models.BooleanField(default=False)
+    insp_link = models.CharField(max_length=250, blank=True,)
+
