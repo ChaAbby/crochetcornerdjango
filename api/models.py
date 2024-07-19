@@ -4,12 +4,12 @@ from django.db import models
 
 class Post(models.Model):
     title = models.CharField(max_length=50)
-    description = models.CharField(max_length=1000)
+    description = models.CharField(max_length=3000)
     author = models.CharField(max_length = 100)
     pub_date = models.DateTimeField('date published')
 
 class Pattern(Post):
-    instructions = models.CharField(max_length=1000, blank=True)
+    instructions = models.CharField(max_length=3000, blank=True)
 
 class Yarn(models.Model):
     pattern = models.ForeignKey(Pattern, on_delete= models.CASCADE)

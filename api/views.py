@@ -15,7 +15,7 @@ class PostView(APIView):
                 'author': output.author,
                 'pub_date': output.pub_date,
             } 
-            for output in Post.objects.all()
+            for output in Post.objects.all().filter().order_by('-pub_date')
         ]
         return Response(output)
         

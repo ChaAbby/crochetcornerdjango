@@ -28,7 +28,6 @@ class InspirationSerializer(serializers.ModelSerializer):
         fields = [
             'title',
             'insp_link',
-            'seeking_pattern',
             'description',
             'author',
             'pub_date'
