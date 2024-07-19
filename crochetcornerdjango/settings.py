@@ -1,3 +1,4 @@
+import os
 """
 Django settings for crochetcornerdjango project.
 
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-lxzv)cyo6h3#kt(qv!fslai^nvz5gupvakul%8q@nmndrpg!!8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [os.environ.get("AWS_HOST"),'127.0.0.1','192.168.4.39']
 
 
 # Application definition
