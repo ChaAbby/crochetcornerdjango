@@ -28,7 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = [os.environ.get("AWS_HOST"),'127.0.0.1','192.168.4.39']
 
-
 # Application definition
 
 INSTALLED_APPS = [
