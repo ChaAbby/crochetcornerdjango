@@ -50,7 +50,6 @@ class InspirationView(APIView):
             {
                 'title': output.title,
                 'insp_link': output.insp_link,
-                'seeking_pattern': output.seeking_pattern,
                 'description': output.description,
                 'author': output.author,
                 'pub_date': output.pub_date,
